@@ -1,11 +1,11 @@
 import React from "react";
-import { Box, Stack, Typography, IconButton, Button, Avatar
-    , Container } from "@mui/material";
-import { styled } from '@mui/material/styles';
+import { Box, Stack, Typography, IconButton, Button ,Switch, Avatar
+  , Container } from "@mui/material";
+import { styled,alpha } from '@mui/material/styles';
 import CheckIcon from '@mui/icons-material/Check';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-
+import { pink } from '@mui/material/colors';
 const StyledTypography = styled(Typography)({
     color: 'red',
     marginTop:'1vh'
@@ -29,7 +29,17 @@ const StyledTypography = styled(Typography)({
         marginRight:"70vh"
     })
 
-   
+   const PinkSwitch = styled(Switch)(({ theme }) => ({
+        '& .MuiSwitch-switchBase.Mui-checked': {
+          color: pink[600],
+          '&:hover': {
+            backgroundColor: alpha(pink[600], theme.palette.action.hoverOpacity),
+          },
+        },
+        '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+          backgroundColor: pink[600],
+        },
+      }));
 
 export const Footer=()=>{
 
@@ -71,10 +81,12 @@ export const Footer=()=>{
                 <Styledheadingtypo variant="substitle1">10 
                 + More Lessons</Styledheadingtypo>
                 </Stack>
-
                 <Styledbutton variant="contained" size="large"  startIcon={<SyncAltIcon/>}>start courses</Styledbutton>
-                <Avatar sx={{marginLeft:105+'vh',bgcolor:"#f50057",marginBottom:10+'vh'}}  variant="square"> <ArrowUpwardIcon /> </Avatar>
+               
+                <PinkSwitch  />
+                <Avatar sx={{marginLeft:105+'vh',bgcolor:"#f50057"}}  variant="square"> <ArrowUpwardIcon /> </Avatar>
                 </Box>
+          
                </Stack>
                
             </Container>
